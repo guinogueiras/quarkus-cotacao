@@ -1,0 +1,12 @@
+version: '3.7' # specify docker-compose version
+
+services:
+    quarkus-cotacao-jvm: 
+        image: quarkus-cotacao-jvm
+        build: 
+            context: .
+            dockerfile: src/main/docker/Dockerfile.jvm
+        environment:
+            QUARKUS_DATASOURCE_URL: jdbc:postgresql://localhost:5433/cotacao
+        ports:
+            - 8080:8080
